@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Personality Analysis</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .form-container {
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .form-group input[type="datetime-local"],
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .prediction-result h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <h1>Customer Personality Analysis</h1>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h2>Customer Personality Analysis</h2>
+                <form action="/predict" method="post">
+
+                    <div class="form-group">
+                        <label for="Income">Monthly Income</label>
+                        <input type="number" name="Income" id="Income" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Customer_days">Tenure</label>
+                        <input type="number" name="Customer_days" id="Customer_days" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Total_Amount">Total Amount</label>
+                        <input type="number" name="Total_Amount" id="Total_Amount" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Total_Purchases">Total Purchases</label>
+                        <input type="number" name="Total_Purchases" id="Total_Purchases" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Marital_Status">Marital status</label>
+                        <select name="Marital_Status" id="Marital_Status" required>
+                            <option value="Single">Married</option>
+                            <option value="Relationship">Unmarried</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Child">Childs</label>
+                        <input type="number" name="Child" id="Child" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Total_offer">Total offers</label>
+                        <input type="number" name="Total_offer" id="Total_offer" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit">Get Outcome</button>
+                    </div>
+                </form>
+
+                <div class="prediction-result">
+                    <h3>{{ prediction_text }}</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>@Harshraj Singh Chouhan</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
